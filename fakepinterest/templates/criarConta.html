@@ -1,9 +1,9 @@
 {% extends "homepage.html" %}
 
-{% block Titulo %}
+{% block titulo %}
 
-    Criar Conta = FakePrinterest
-    {% endblock %}
+    Criar Conta - FakePrinterest
+{% endblock %}
 
 {% block formulario %}
     <form method="POST">
@@ -13,7 +13,7 @@
         {{ form.email() }}
 
         {{ form.userName.label() }}
-        {{ form.senha() }}
+        {{ form.userName() }}
 
         {{ form.senha.label() }}
         {{ form.senha() }}
@@ -22,7 +22,5 @@
         {{ form.confirmacaoSenha() }}
 
         {{ form.botaoConfirmacao() }}
-        
     </form>
-
 {% endblock %}

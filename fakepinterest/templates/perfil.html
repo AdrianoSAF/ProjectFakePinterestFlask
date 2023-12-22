@@ -6,7 +6,7 @@ Perfil - {{ usuario }}
 
 {% block body %}
 <body>
-    <h1>FakePrinterest - Meu primeiro site no ar</h1>
-    <a href="{{ url_for('homepage') }}">Sair</a>
+    <h1>Perfil do usuário: {{usuario}}</h1>
+    <a href="{{ url_for('logout') }}">Sair</a>
 </body>
 {% endblock %}
