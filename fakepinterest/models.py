@@ -6,7 +6,7 @@ from flask_login import UserMixin #dis qual a classe que gera a estrutura de log
 
 @login_manager.user_loader
 def loadUsuario(id):#é obrigatório quando você cria uma estrutura de login
-    return Usuario.query.get(int(id))#retorna um usuario especifico
+    return Usuario.query.get(int(id))#retorna um usuario especifico. Quando vai filtrar por E-mail usa o get()
 
 class Usuario(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
