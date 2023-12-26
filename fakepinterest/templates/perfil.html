@@ -6,7 +6,22 @@ Perfil - {{ usuario }}
 
 {% block body %}
 <body>
-    <h1>Perfil do usuário: {{usuario}}</h1>
-    <a href="{{ url_for('logout') }}">Sair</a>
+    {% include "navbar.html" %}
+
+    <h1>Perfil do usuário: {{usuario.name}}</h1>
+
+    {% if form%}
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+
+            {{ form.foto()}}
+            {{ form.botaoConfirmacao}}
+
+        </form>
+    {% endif%}
+
+    {% for foto in usuario.foto %}
+        <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem))}}">
+    {% endfor %}
 </body>
 {% endblock %}
