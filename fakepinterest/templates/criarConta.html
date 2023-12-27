@@ -1,4 +1,4 @@
-{% extends "homepage.html" %}
+{% extends "loginPage.html" %}
 
 {% block titulo %}
 
@@ -83,7 +83,7 @@
 
           <div class="div-botao">
             {{ form.botaoConfirmacao(class="botao-login") }}
-            <a href="{{ url_for('homepage') }}" class="link-criarconta">já tem uma conta? Faça login</a>
+            <a href="{{ url_for('loginPage') }}" class="link-criarconta">já tem uma conta? Faça login</a>
           </div>
         </form>
         {% endblock %}

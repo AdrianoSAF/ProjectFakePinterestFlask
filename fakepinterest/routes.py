@@ -6,24 +6,28 @@ from fakepinterest.models import Usuario, Foto
 import os
 from werkzeug.utils import secure_filename
 
-#Colocando no ar -> Link privado
-@app.route("/", methods=["GET", "POST"])#methods = Permite os 2 métodos
+@app.route("/")
 def homepage():
+    return render_template("homepage.html")
+
+#Colocando no ar -> Link privado
+@app.route("/loginpage", methods=["GET", "POST"])#methods = Permite os 2 métodos
+def loginPage():
     formLogin = FormLogin()
     if formLogin.validate_on_submit():
         usuario = Usuario.query.filter_by(email=formLogin.email.data).first()
-        if usuario and bcrypt.check_password_hash(usuario.senha.encode("utf-8"), formLogin.senha.data):
+        if usuario and bcrypt.check_password_hash(usuario.senha, formLogin.senha.data):
             login_user(usuario)
             return redirect(url_for("perfil", id=usuario.id))
             
-    return render_template("homepage.html", form=formLogin)
+    return render_template("loginPage.html", form=formLogin)
 
 @app.route("/criarconta", methods=["GET", "POST"])
-def criarconta():
+def criarConta():
     formCriarConta = FormCriarConta()
 
     if formCriarConta.validate_on_submit(): #Se clicou no botão submit (Enviar)
-        senha = bcrypt.generate_password_hash(formCriarConta.senha.data).decode("utf-8") #Criptografa a senha do usuário para armazenar no DB
+        senha = bcrypt.generate_password_hash(formCriarConta.senha.data) #Criptografa a senha do usuário para armazenar no DB
                 #bcrypt.check_password_hash() Converte a senha criptografada para a senha normal
 
         # processo DB
