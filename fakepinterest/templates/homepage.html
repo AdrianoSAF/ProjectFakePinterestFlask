@@ -69,12 +69,30 @@
 
           <div class="div-input">
             {{ form.email.label(class="label") }}
+
+            {% if form.email.errors %}
+
+              {% for error in form.email.errors %}
+                <p style="color:red"> {{ error }} </p>
+              {% endfor %}
+
+            {% endif %}
+
             {{ form.email(class="input") }}
           </div>
 
           <div class="div-input">
           {{ form.senha.label(class="label") }}
-            {{ form.senha(class="input") }}
+
+          {% if form.senha.errors %}
+
+            {% for error in form.senha.errors %}
+              <p style="color:red"> {{ error }} </p>
+            {% endfor %}
+
+          {% endif %}
+
+          {{ form.senha(class="input") }}
 
           <div class="div-botao">
             {{ form.botaoConfirmacao(class="botao-login") }}
