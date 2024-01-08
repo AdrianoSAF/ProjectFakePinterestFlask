@@ -1,0 +1,5 @@
+arquivo: routes - linha: 55 - descrição: percisa ordenar corretamente as fotos que aparecem no perfil, não está filtrando por usuario
+
+
+
+

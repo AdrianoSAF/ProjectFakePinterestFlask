@@ -18,8 +18,7 @@ def loginPage():
         usuario = Usuario.query.filter_by(email=formLogin.email.data).first()
         if usuario and bcrypt.check_password_hash(usuario.senha, formLogin.senha.data):
             login_user(usuario)
-            return redirect(url_for("perfil", id=usuario.id))
-            
+            return redirect(url_for("perfil", id=usuario.id))      
     return render_template("loginPage.html", form=formLogin)
 
 @app.route("/criarconta", methods=["GET", "POST"])
