@@ -1,11 +1,11 @@
-{% extends "loginPage.html" %}
+{% extends "perfil.html" %}
 
 {% block titulo %}
-
-    Criar Conta - FakePrinterest
+    Perfil - {{ usuario }}
 {% endblock %}
 
-{% block formulario %}
+
+        {% block formulario %}
         <form method="POST", class="popup">
             {{ form.csrf_token }}
           <svg

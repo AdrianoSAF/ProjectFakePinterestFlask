@@ -1,4 +1,4 @@
-from fakepinterest import app
+from ProjectFakePinterest import app
 
 
 
