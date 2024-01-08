@@ -4,7 +4,7 @@ from ProjectFakePinterest import bcrypt
 class Database:
 
     def checkEmail(email):
-        usuario = Usuario.query.filter_by(email=email.data).first() #da uma Lista de usuários
+        usuario = Usuario.query.filter_by(email=email).first() #da uma Lista de usuários
         if usuario:                     #email da classe usuário  #email do campo - .data = as informações do campo
             return True
         return False
